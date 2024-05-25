@@ -36,7 +36,7 @@ const SortingAlgos = () => {
   const randomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
-  const numWidth = Math.floor(window.innerWidth/(refArray.length * 3));
+  const numWidth = Math.floor(900/(refArray.length * 3));
   const width = `${numWidth}px`;
   const numMargin =
     refArray.length < 5
