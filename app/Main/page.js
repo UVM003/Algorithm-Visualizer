@@ -4,9 +4,15 @@ import Link from 'next/link'
 import { CgProfile } from "react-icons/cg";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-const page = () => {
-  const [showPro, setshowPro] = useState(true)
-  const [isFadingOut, setIsFadingOut] = useState(false);
+
+const main = () => {
+const [showPro, setshowPro] = useState(false)
+const [isFadingOut, setIsFadingOut] = useState(false);
+
+const handleClick = () => {
+    setshowPro(true);
+    setIsFadingOut(false);
+}
 
 
   const handleExploreClick = () => {
@@ -17,7 +23,7 @@ const page = () => {
   return (
     <div className='relative w-full h-screen bg-zinc-900'>
            {showPro && (
-        <div className={`fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-75 ${isFadingOut ? 'fade-exit-active' : 'fade-enter-active'}`}>
+        <div className={`fixed inset-0 flex items-center justify-center bg-gray-900 bg-opacity-75 ${isFadingOut ? 'fade-exit-active':'fade-enter-active'}`}>
           <div className="bg-slate-300 rounded-lg shadow-lg p-6 w-3/5 h-1/2">
             <div className="text-center">
               <h2 className="text-2xl font-bold mb-4 mt-8 text-gray-900">Hello!</h2>
@@ -41,7 +47,7 @@ const page = () => {
         <p className='hover:text-orange-600 font-serif  font-bold text-[3rem] text-slate-400'>ALGORITHM </p>
         <p className='hover:text-orange-600 font-serif  font-bold text-[3rem] text-slate-400'> VISUALIZER</p>
        </div>
-       <div className='flex mt-6 gap-5 ml-20'><CgProfile color="#90A8C3" size="2.5em" className='hover:cursor-pointer' onClick={()=>{setshowPro(true);setIsFadingOut((e)=>!e)}} />
+       <div className='flex mt-6 gap-5 ml-20'><CgProfile color="#90A8C3" size="2.5em" className='hover:cursor-pointer' onClick={handleClick} />
        <a href='https://github.com/UVM003/Algorithm-Visualizer'target="_blank" rel="noopener noreferrer"><FaGithub color="#90A8C3" size="2.2em" className='hover:cursor-pointer'/></a>
        <a href="https://www.linkedin.com/in/venkatachala-melady-u-4838b3228" target="_blank" rel="noopener noreferrer"><FaLinkedin color="#90A8C3" size="2.2em" className='hover:cursor-pointer'/></a></div>
   <div className="flex flex-col items-center space-y-8 mt-[6rem]">
@@ -72,4 +78,4 @@ const page = () => {
   )
 }
 
-export default page
+export default main

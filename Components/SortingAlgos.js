@@ -1,6 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { mergeSort, selectionSort,bubbleSort} from "@/app/Utils/sortingHelpers";
+import { FaHome } from "react-icons/fa";
+import Link from "next/link";
+
+
 const SortingAlgos = () => {
   const [array, setarray] = useState([]);
   const [desc, setdesc] = useState({ purple:"",green:"",red: "",tc: "", about: "" });
@@ -8,11 +12,15 @@ const SortingAlgos = () => {
   const [whichSort, setwhichSort] = useState('')
   const [speed, setspeed] = useState(3)
   const [progress, setprogress] = useState(false)
-
+  const [isSort, setisSort] = useState(false)
 
   useEffect(() => {
     resetArray();
   }, [arraySize,speed]);
+
+  useEffect(() => {
+    startSort(whichSort)
+  }, [isSort]);
 
   const refArray = [];
   const resetArray = () => {
@@ -23,11 +31,12 @@ const SortingAlgos = () => {
     setarray(refArray);
     setdesc({ tc: "", about: "" });
     setwhichSort('')
+    setisSort(false)
   };
   const randomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
   };
-  const numWidth = Math.floor(window.innerWidth / (refArray.length * 3));
+  const numWidth = Math.floor(window.innerWidth/(refArray.length * 3));
   const width = `${numWidth}px`;
   const numMargin =
     refArray.length < 5
@@ -89,7 +98,7 @@ const SortingAlgos = () => {
     setdesc({ purple,green ,red,tc, about });
   };
 
-  const startSort =  (e)=>
+  const startSort = (e)=>
     {
         if(e==='M')
           {
@@ -110,10 +119,27 @@ const SortingAlgos = () => {
         <div>
           <button
             className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-14 me-2 mb-2"
-            onClick={() =>window.location.reload()}
+            onClick={()=>window.location.reload()}
           >
             RESET
           </button>
+        </div>
+        <div className=" flex justify-center gap-7">
+          <span className="w-24  text-white  hover:text-[#E1CE7A]">
+            Array Length
+            <input
+              className="w-24"
+              type="range"
+              max={43}
+              min={8}
+              value={arraySize}
+              onChange={(e) => setarraySize(e.target.value)}
+              disabled={progress}
+            ></input>
+          </span>
+          <span className="w-24 ml-4 text-white  hover:text-[#E1CE7A]">
+            Speed<input className="w-24" type="range" max={100} min={3} value={speed} onChange={(e)=>setspeed(e.target.value)} disabled={progress}></input>
+          </span>
         </div>
         <div className=" flex justify-center gap-7 ">
           <button
@@ -147,23 +173,6 @@ const SortingAlgos = () => {
             Bubble Sort
           </button>
         </div>
-        <div className=" flex justify-center gap-7">
-          <span className="w-24  text-white  hover:text-[#E1CE7A]">
-            Array Length
-            <input
-              className="w-24"
-              type="range"
-              max={43}
-              min={8}
-              value={arraySize}
-              onChange={(e) => setarraySize(e.target.value)}
-              disabled={progress}
-            ></input>
-          </span>
-          <span className="w-24 ml-4 text-white  hover:text-[#E1CE7A]">
-            Speed<input className="w-24" type="range" max={100} min={3} value={speed} onChange={(e)=>setspeed(e.target.value)} disabled={progress}></input>
-          </span>
-        </div>
         <div className=" flex gap-6 justify-center items-center">
         <button
           type="button"
@@ -175,8 +184,9 @@ const SortingAlgos = () => {
         <button
           type="button"
           className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-          onClick={()=>(startSort(whichSort))}
-          hidden={!progress}>
+          onClick={()=>(setisSort((e)=>!e))}
+          hidden={!progress}
+          disabled={isSort}>
           Sort
         </button>
         </div>
@@ -213,6 +223,7 @@ const SortingAlgos = () => {
           {desc.about}
         </p>
       </div>
+      <div className="inline-block rounded-full ml-[90rem] p-2 bg-slate-600"><Link href='/Main'><FaHome  color="#90A8C3" size="2.5em" className='hover:cursor-pointer'/></Link></div>
     </>
   );
 };

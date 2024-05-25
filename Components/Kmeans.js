@@ -1,5 +1,7 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
+import { FaHome } from "react-icons/fa";
+import Link from "next/link";
 const Kmeans = () => {
 const [pointsArray, setpointsArray] = useState([])
 const [colors, setcolors] = useState(['#DC0F0C','#D4D245','#698F3F','#2D7DD2','#B11CAC'])
@@ -193,7 +195,9 @@ const euclideanDistance = (point1, point2) => {
         </div> <pre className=' text-yellow-300 font-bold italic font-2xl'> :- Centroids</pre></div>
         <div className='flex justify-center items-center mt-2'><div className='w-[12px] h-[12px] mt-1 rounded-2xl bg-slate-100'>
         </div> <pre className=' text-yellow-300 font-bold italic font-2xl'> :- Data Instances</pre></div>
+        <div className=" absolute inline-block rounded-full left-[24rem] bottom-[1rem] p-2 bg-slate-300"><Link href='/Main'><FaHome  color="#10314A" size="2.5em" className='hover:cursor-pointer'/></Link></div>
     </div> 
+    
       </>
   )
 }

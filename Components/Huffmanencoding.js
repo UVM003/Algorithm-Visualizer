@@ -1,7 +1,9 @@
 "use client"
 import React, { useState } from 'react'
 import { drawGraph } from '@/app/Utils/hauffmanHelpers';
+import { FaHome } from "react-icons/fa";
 import * as d3 from 'd3';
+import Link from "next/link";
 class HuffmanNode 
 { 
     constructor(val,freq,right,left,code) 
@@ -168,7 +170,9 @@ const Huffmanencoding = () => {
         <g  id='abc' className="graph w-[100%]"></g>
       </svg>
         </div>
+        <div className="absolute inline-block rounded-full top-[39rem] left-[90rem] p-2 bg-slate-800"><Link href='/Main'><FaHome  color="#90A8C3" size="2.5em" className='hover:cursor-pointer'/></Link></div>
         </div>
+        
   )
 }
 

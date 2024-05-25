@@ -1,5 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
+import { FaHome } from "react-icons/fa";
+import Link from "next/link";
 
 const CountingSort = () => {
     const [progress, setprogress] = useState(false)
@@ -269,7 +271,7 @@ const doSort=()=>
        <p className='p-2 mt-1  text-slate-300 font-semibold'>Begin iterating through the auxiliary array from 0 to max.Put 0 at the corresponding index and reduce the count by 1, which will indicate the element's second position in the input array if it exists.</p>
  <p className='p-2 text-slate-300 font-semibold'>Now put the array you got in the previous step into the actual input array.</p>
     </div> 
-
+    <div className=" absolute inline-block rounded-full bottom-[1rem] left-[90rem] p-2 bg-slate-600"><Link href='/Main'><FaHome  color="#90A8C3" size="2.5em" className='hover:cursor-pointer'/></Link></div>
         
     </>
   )
