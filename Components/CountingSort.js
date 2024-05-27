@@ -11,6 +11,7 @@ const CountingSort = () => {
     const [speed, setspeed] = useState(3);
     const [maxVal, setmaxVal] = useState(0);
     const [disSort, setdisSort] = useState(false)
+    const [hideHome, sethideHome] = useState(true)
 
     useEffect(() => {
         resetArray();
@@ -218,7 +219,7 @@ const doSort=()=>
           className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
           hidden={!progress}
           disabled={disSort}
-          onClick={()=>(CountingSort(),setdisSort((e)=>!e))}>
+          onClick={()=>(CountingSort(),setdisSort((e)=>!e),sethideHome(false))}>
           Sort
         </button>
         </div>
@@ -271,7 +272,7 @@ const doSort=()=>
        <p className='p-2 mt-1  text-slate-300 font-semibold'>Begin iterating through the auxiliary array from 0 to max.Put 0 at the corresponding index and reduce the count by 1, which will indicate the element's second position in the input array if it exists.</p>
  <p className='p-2 text-slate-300 font-semibold'>Now put the array you got in the previous step into the actual input array.</p>
     </div> 
-    <div className=" absolute inline-block rounded-full bottom-[1rem] left-[90rem] p-2 bg-slate-600"><Link href='/Main'><FaHome  color="#90A8C3" size="2.5em" className='hover:cursor-pointer'/></Link></div>
+   {hideHome&& (<div className=" absolute inline-block rounded-full bottom-[1rem] left-[90rem] p-2 bg-slate-600"><Link href='/Main'><FaHome  color="#90A8C3" size="2.5em" className='hover:cursor-pointer'/></Link></div>)}
         
     </>
   )

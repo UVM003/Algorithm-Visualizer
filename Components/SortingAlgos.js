@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useEffect, useState } from "react";
 import { mergeSort, selectionSort,bubbleSort} from "@/app/Utils/sortingHelpers";
 import { FaHome } from "react-icons/fa";
@@ -13,6 +13,7 @@ const SortingAlgos = () => {
   const [speed, setspeed] = useState(3)
   const [progress, setprogress] = useState(false)
   const [isSort, setisSort] = useState(false)
+  const [hideHome, sethideHome] = useState(true)
 
   useEffect(() => {
     resetArray();
@@ -32,6 +33,7 @@ const SortingAlgos = () => {
     setdesc({ tc: "", about: "" });
     setwhichSort('')
     setisSort(false)
+    sethideHome(false)
   };
   const randomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min);
@@ -184,7 +186,7 @@ const SortingAlgos = () => {
         <button
           type="button"
           className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-          onClick={()=>(setisSort((e)=>!e))}
+          onClick={()=>{setisSort((e)=>!e),sethideHome(true)}}
           hidden={!progress}
           disabled={isSort}>
           Sort
@@ -219,11 +221,11 @@ const SortingAlgos = () => {
         <p className="absolute left-1/2  top-2/3 -translate-x-1/2 -translate-y-2/3 text-3xl text-zinc-400  font-extrabold italic">
           {desc.tc}
         </p>
-        <p className=" absolute  flex-wrap top-8 left-1/3 -translate-x-36 text-xl text-zinc-400  font-semibold ">
+        <p className="absolute  flex-wrap top-8 left-1/3 -translate-x-36 text-xl text-zinc-400  font-semibold">
           {desc.about}
         </p>
       </div>
-      <div className="inline-block rounded-full ml-[90rem] p-2 bg-slate-600"><Link href='/Main'><FaHome  color="#90A8C3" size="2.5em" className='hover:cursor-pointer'/></Link></div>
+      {!hideHome &&(<div className=" absolute inline-block rounded-full bottom-[1rem] left-[90rem] p-2 bg-slate-600"><Link href='/Main'><FaHome color="#90A8C3" size="2.5em" className='hover:cursor-pointer'/></Link></div>)}
     </>
   );
 };

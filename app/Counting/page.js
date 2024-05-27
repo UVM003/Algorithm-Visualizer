@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import CountingSort from '@/Components/CountingSort'
 const Counting = () => {

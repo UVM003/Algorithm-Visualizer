@@ -12,6 +12,7 @@ const [centroids, setcentroids] = useState([])
 const [iterations, setiterations] = useState(0)
 const [lock, setlock] = useState(false)
 const [dimensions, setDimensions] = useState({ width:960, height:530});
+const [hideHome, sethideHome] = useState(true)
 const divRef = useRef(null);
 
 
@@ -150,7 +151,7 @@ const euclideanDistance = (point1, point2) => {
           <button
           disabled={lock}
       className="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center ml-10 me-2 mb-2"
-      onClick={()=>{initializeCentroids(pointsArray),setlock(true)}}>
+      onClick={()=>{initializeCentroids(pointsArray),setlock(true),sethideHome(false)}}>
             start
           </button>
       </div>
@@ -195,7 +196,7 @@ const euclideanDistance = (point1, point2) => {
         </div> <pre className=' text-yellow-300 font-bold italic font-2xl'> :- Centroids</pre></div>
         <div className='flex justify-center items-center mt-2'><div className='w-[12px] h-[12px] mt-1 rounded-2xl bg-slate-100'>
         </div> <pre className=' text-yellow-300 font-bold italic font-2xl'> :- Data Instances</pre></div>
-        <div className=" absolute inline-block rounded-full left-[24rem] bottom-[1rem] p-2 bg-slate-300"><Link href='/Main'><FaHome  color="#10314A" size="2.5em" className='hover:cursor-pointer'/></Link></div>
+        {hideHome&&(<div className=" absolute inline-block rounded-full left-[24rem] bottom-[1rem] p-2 bg-slate-300"><Link href='/Main'><FaHome color="#10314A" size="2.5em" className='hover:cursor-pointer'/></Link></div>)}
     </div> 
     
       </>
