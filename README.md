@@ -1,6 +1,6 @@
 # Algorithm Visualizer
 
-A React.js application that visualizes various algorithms including sorting, Huffman coding, and k-means clustering.
+A React.js application that visualizes various algorithms including Sorting, Huffman coding, and K-means clustering.
 
 ## Table of Contents
 - [Features](#features)
@@ -17,7 +17,7 @@ A React.js application that visualizes various algorithms including sorting, Huf
 - Interactive and intuitive user interface.
 
 ## Demo
-- **Video Demo**: [Watch on YouTube]([https://youtu.be/g-XsRAVVCTk])
+- **Video Demo**: [Watch on YouTube](https://youtu.be/g-XsRAVVCTk)
 - **Screenshots**:
   ![Sorting Algorithm](screenshots/bubbleSort.png)
   ![Counting Sort](screenshots/countingSort.png)
