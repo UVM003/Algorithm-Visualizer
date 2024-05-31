@@ -17,7 +17,7 @@ A React.js application that visualizes various algorithms including sorting, Huf
 - Interactive and intuitive user interface.
 
 ## Demo
-- **Video Demo**: [Watch on YouTube](https://youtu.be/example)
+- **Video Demo**: [Watch on YouTube]([https://youtu.be/g-XsRAVVCTk])
 - **Screenshots**:
   ![Sorting Algorithm](screenshots/bubbleSort.png)
   ![Counting Sort](screenshots/countingSort.png)
