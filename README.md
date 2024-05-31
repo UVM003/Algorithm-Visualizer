@@ -32,11 +32,11 @@ A React.js application that visualizes various algorithms including sorting, Huf
    npm start
    
 ## Usage
-Open your browser and navigate to http://localhost:3000.
-Select an algorithm from the menu.
-Follow the on-screen instructions to visualize the algorithm.
+- Open your browser and navigate to http://localhost:3000.
+- Select an algorithm from the menu.
+- Follow the on-screen instructions to visualize the algorithm.
 
 ## Technologies Used
-Javascript
-React.js
-Tailwind CSS
+- Javascript
+- React.js
+- Tailwind CSS
