@@ -19,7 +19,8 @@ A React.js application that visualizes various algorithms including sorting, Huf
 ## Demo
 - **Video Demo**: [Watch on YouTube](https://youtu.be/example)
 - **Screenshots**:
-  ![Sorting Algorithm](screenshots/sorting.png)
+  ![Sorting Algorithm](screenshots/bubbleSort.png)
+  ![Counting Sort](screenshots/countingSort.png)
   ![Huffman Coding](screenshots/huffman.png)
   ![K-means Clustering](screenshots/kmeans.png)
 
